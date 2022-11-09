@@ -21,8 +21,8 @@
     position: inherit;
 }
 .cards{
-height:220;
-width: 23%;
+/* height:230px; */
+width: 22%;
 display: flex;
 flex-direction: column;
 justify-content: center;

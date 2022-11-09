@@ -4,6 +4,9 @@ export const CartData = createContext();
 const Context = ({children}) => {
     const [cart, setCart] = useState([]);
     const [fav, setFav] = useState([]);
+    const [search,setSearch] = useState('');
+    const [button,setButton] = useState(false)
+    const [empty,setEmpty] = useState()
   
     const productApi = async() =>{
       const data = await axios.get('https://fakestoreapi.com/products');
@@ -12,7 +15,7 @@ const Context = ({children}) => {
   const [products,setProducts]=useState(productApi)
   
   return (
-    <CartData.Provider value={{fav,setFav,cart,setCart,products}}>{children}</CartData.Provider>
+    <CartData.Provider value={{empty,setEmpty,search,setSearch,fav,setFav,cart,setCart,products,button,setButton}}>{children}</CartData.Provider>
   )
 }
 

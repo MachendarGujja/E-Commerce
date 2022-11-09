@@ -11,7 +11,7 @@ const Product = ({product}) => {
     <li className='cards'>
         <img style={{width:100,height:120,marginTop:3,marginBottom:3}} src={`${product.image}`} alt={product.title}/>
         <div className='bot-css'>
-        {product.title.length>35?`${product.title.substring(0,28)}...`:`${product.title}`}
+        {product.title.length>35?`${product.title.substring(0,17)}...`:`${product.title}`}
         <div className='midcss'>
         <h5>&#8377; {parseInt(product.price*80)}</h5>
         <div>

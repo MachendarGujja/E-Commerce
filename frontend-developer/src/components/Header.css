@@ -34,3 +34,7 @@
     height: 60px;
     /* border: 1px solid black; */
 }
+.in-css{
+    border-bottom-right-radius: 0px;
+    border-left: none;
+}

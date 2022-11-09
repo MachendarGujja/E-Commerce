@@ -10,6 +10,8 @@ import Products from './components/Products';
 import Cart from './components/Cart';
 import Favorite from './components/Favorite';
 import Profile from './components/Profile';
+// import { CartData } from './Context';
+// import { useContext } from 'react';
 
 
 export default function App(){
@@ -34,6 +36,7 @@ export default function App(){
   const [list,setList]=useState(list_of_users);
   const [userName,setUserName]=useState();
   const [login,setLogin]=useState(false);
+// const {search,setSearch} = useContext(CartData)
 
   const registerButton = (i) =>{
     setList(prev=>[...prev,i]);
@@ -42,8 +45,9 @@ export default function App(){
     setLogin(i);
     setUserName(j)
   }
+  // setSearch('')
     useEffect(()=>{
-
+      
   },[list,login])
   // console.log(login)
   

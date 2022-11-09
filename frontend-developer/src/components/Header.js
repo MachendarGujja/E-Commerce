@@ -12,7 +12,7 @@ import Button from 'react-bootstrap/esm/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 export default function Header({loginFunction,user}){
-  const {cart} = useContext(CartData);
+  const {cart,setSearch,setButton} = useContext(CartData);
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -22,6 +22,7 @@ export default function Header({loginFunction,user}){
   const handleClose = () => {
     setAnchorEl(null);
   };
+  
   // console.log(anchorEl);
     return(
         <div className="header-css">
@@ -34,8 +35,8 @@ export default function Header({loginFunction,user}){
         </Link>
         </div>
         <div style={{display:'flex'}}>
-        <Form.Control type="text" placeholder="Search anything..." />
-        <Button>ok</Button>
+        <Form.Control  className='in-css' onChange={(e)=>setSearch(e.target.value)} type="text" placeholder="Search anything..." />
+        <Button onClick={()=>setButton(true)}>Search</Button>
         </div>
         <div className='options-list'>
         <Link to='/'  style={{marginRight:15,color:'black',textDecoration:'none'}}>
