@@ -1,0 +1,55 @@
+.home-css{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.top-image{
+    background-image: url('https://cdn.allbirds.com/image/upload/f_auto,q_auto,w_1386/cms/7xkI3BAaCaw5HVbHatfHwT/f3d1d560b2501d3fef094972ea6e45eb/Desktop-Hero-WRMizzle-02.png');
+    height: 400px;
+    /* width: 100vw; */
+    background-size: cover;
+    /* background-repeat: no-repeat; */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding-bottom: 50px;
+    padding-left: 150px;
+}
+.button {
+    border-radius: 4px;
+    background-color: #4285F4;
+    box-shadow: 0 0 50px #ccc;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 20px;
+    width: 150px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+  }
+  
+  .button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  .button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  .button:hover span {
+    padding-right: 25px;
+  }
+  .button:hover span:after {
+    opacity: 1;
+    right: 0;
+  }

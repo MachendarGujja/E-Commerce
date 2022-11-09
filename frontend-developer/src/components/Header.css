@@ -1,0 +1,36 @@
+.header-css{
+    position:fixed;
+    background-color: white;
+    border-bottom: 1px solid black;
+    height: 60px;
+    width: 100vw;
+    display: flex;
+    /* justify-content: space-between; */
+    /* margin-left: 100px; */
+    align-items: center;
+}
+.name-css{
+    display: flex;
+    width: 180px;
+}
+.help:hover{
+    /* list-style-type: underline; */
+    text-decoration: underline;
+}
+.stores:hover{
+    /* list-style-type: underline; */
+    text-decoration: underline;
+}
+.icon-img{
+    height: 50px;
+    width: 200px;
+    margin-left: 420px;
+    margin-right: 260px;
+}
+.options-list{
+    display: flex;
+    align-items: center;
+    width: 300px;
+    height: 60px;
+    /* border: 1px solid black; */
+}
