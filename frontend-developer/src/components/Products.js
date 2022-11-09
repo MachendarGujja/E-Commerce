@@ -18,7 +18,7 @@ const Products = () => {
       
       const dataa = ()=>setEmpty(newData)
        dataa()
-    }, [button,products])
+    }, [button,products,setEmpty,search])
     // console.log(newData)
     
     
