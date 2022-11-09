@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react';
 import Products from './components/Products';
 import Cart from './components/Cart';
 import Favorite from './components/Favorite';
+import Profile from './components/Profile';
 
 
 export default function App(){
@@ -57,6 +58,7 @@ export default function App(){
       <Route path='/products'  element={login?<Products />:<Navigate replace to={'/signin'}/>}/>
       <Route path='/cart'  element={login?<Cart />:<Navigate replace to={'/signin'}/>}/>
       <Route path='/favorite'  element={login?<Favorite />:<Navigate replace to={'/signin'}/>}/>
+      <Route path='/profile'  element={login?<Profile />:<Navigate replace to={'/signin'}/>}/>
      </Routes>
      </BrowserRouter>
   )

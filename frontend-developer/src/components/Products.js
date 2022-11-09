@@ -9,6 +9,9 @@ const Products = () => {
     //   console.log(products);
   return (
     <div className='css'>
+        <div className='side-filter'>
+            <h1>Hello</h1>
+        </div>
         <ul className='card-css'> 
             {products.map((e)=>(
                 <Product product={e} key={e.id} />

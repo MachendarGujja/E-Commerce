@@ -5,7 +5,7 @@
     height: 60px;
     width: 100vw;
     display: flex;
-    /* justify-content: space-between; */
+    justify-content: space-between;
     /* margin-left: 100px; */
     align-items: center;
 }
@@ -24,8 +24,8 @@
 .icon-img{
     height: 50px;
     width: 200px;
-    margin-left: 420px;
-    margin-right: 260px;
+    /* margin-left: 420px;
+    margin-right: 260px; */
 }
 .options-list{
     display: flex;

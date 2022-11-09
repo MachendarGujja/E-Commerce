@@ -12,6 +12,13 @@
     background-color: #dce0e2;
     margin: 0;
     padding: 0;
+    display: flex;
+}
+.side-filter{
+    border: 1px solid black;
+    width: 20%;
+    height: 80vh;
+    position: inherit;
 }
 .cards{
 height:220;

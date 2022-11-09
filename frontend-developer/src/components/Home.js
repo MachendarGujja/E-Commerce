@@ -22,6 +22,9 @@ export default function Home(){
         <button className="button"><span>Shop Now</span></button>
         </Link>
       </div>
+      <div>
+        <h3>Best Selling Products</h3>
+      </div>
       {/* <h1>{cart}</h1> */}
       </div>
     )
