@@ -10,6 +10,7 @@ import Products from './components/Products';
 import Cart from './components/Cart';
 import Favorite from './components/Favorite';
 import Profile from './components/Profile';
+import Help from './components/Help';
 // import { CartData } from './Context';
 // import { useContext } from 'react';
 
@@ -63,6 +64,7 @@ export default function App(){
       <Route path='/cart'  element={login?<Cart />:<Navigate replace to={'/signin'}/>}/>
       <Route path='/favorite'  element={login?<Favorite />:<Navigate replace to={'/signin'}/>}/>
       <Route path='/profile'  element={login?<Profile />:<Navigate replace to={'/signin'}/>}/>
+      <Route path='/help'  element={login?<Help />:<Navigate replace to={'/signin'}/>}/>
      </Routes>
      </BrowserRouter>
   )

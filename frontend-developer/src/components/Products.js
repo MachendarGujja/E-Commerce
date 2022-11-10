@@ -1,24 +1,25 @@
-import {useContext,useEffect} from 'react';
+import {useContext,useEffect,useState} from 'react';
 // import axios from 'axios';
 import Product from './Product';
 import './Products.css'
 import { CartData } from '../Context';
 const Products = () => {
-    const {products,search,button,setButton,empty,setEmpty} = useContext(CartData)
-    // const [newList, setnewList] = useState([])
-    const b = button?empty:products;
+    const {products,search,button,setButton} = useContext(CartData)
+    const [newList, setnewList] = useState([])
+    const b = newList?newList:products;
     if(search.length === 0){
-       const data = ()=> setButton(false)
-       data()
+       setButton(false)
       }
     //   console.log(search);
-    useEffect(() => {
-        const data = products;
-      const newData = data.filter((e)=>e.title.toLowerCase().includes(search));
+    // const fetchBusinesses = useCallback(() => {
       
-      const dataa = ()=>setEmpty(newData)
-       dataa()
-    }, [button,products,setEmpty,search])
+    // }, []) // eslint-disable-line react-hooks/exhaustive-deps
+
+    useEffect(() => {
+      const data = products;
+      const newData = data.filter((e)=>e.title.toLowerCase().includes(search));
+      setnewList(newData)
+    }, [button]) // eslint-disable-line react-hooks/exhaustive-deps
     // console.log(newData)
     
     
