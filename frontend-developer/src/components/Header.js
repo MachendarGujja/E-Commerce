@@ -11,8 +11,12 @@ import { CartData } from '../Context';
 import Button from 'react-bootstrap/esm/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+import Box from '@mui/material/Box';
+import InputLabel from '@mui/material/InputLabel';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 export default function Header({loginFunction,user}){
-  const {cart,setSearch,search,setButton} = useContext(CartData);
+  const {cart,setSearch,search,setButton,category, setCategory} = useContext(CartData);
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -22,7 +26,9 @@ export default function Header({loginFunction,user}){
   const handleClose = () => {
     setAnchorEl(null);
   };
-  
+  const handleChange = (event) => {
+    setCategory(event.target.value);
+  };
   // console.log(anchorEl);
     return(
         <div className="header-css">
@@ -31,27 +37,45 @@ export default function Header({loginFunction,user}){
         </div> */}
         <div >
         <Link to='/' >
-        <img className="icon-img" onClick={()=>setSearch('')} title='Go to Home' src="https://media.designrush.com/inspiration_images/136099/conversions/_1513769278_678_Prada_Logo_865cc60eea8d-desktop.jpg" alt="icon"/>
+        <img className="icon-img" onClick={()=>{setSearch('');setCategory('all')}} title='Go to Home' src="https://media.designrush.com/inspiration_images/136099/conversions/_1513769278_678_Prada_Logo_865cc60eea8d-desktop.jpg" alt="icon"/>
         </Link>
         </div>
-        <div style={{display:'flex'}}>
+        <div style={{display:'flex',height:40}}>
+        <Box sx={{ minWidth: 120,height:40 }}>
+      <FormControl fullWidth style={{height:40}}>
+        <InputLabel id="demo-simple-select-label">Category</InputLabel>
+        <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          value={category}
+          label="Age"
+          onChange={handleChange}
+        >
+          <MenuItem value={'all'} >All</MenuItem>
+          <MenuItem value={"men's clothing"} >Men's clothing</MenuItem>
+          <MenuItem value={"women's clothing"} >Women's clothing</MenuItem>
+          <MenuItem value={'jewelery'} >Jewelory</MenuItem>
+          <MenuItem value={"electronics"} >Electronics</MenuItem>
+        </Select>
+      </FormControl>
+    </Box>
         <Form.Control  className='in-css' value={search} onChange={(e)=>setSearch(e.target.value)} type="text" placeholder="Search anything..." />
         <Button onClick={()=>setButton(true)}>Search</Button>
         </div>
         <div className='options-list'>
         <Link to='/'  style={{marginRight:15,color:'black',textDecoration:'none'}}>
-        <h5 className='stores' onClick={()=>setSearch('')}>STORES</h5>
+        <h5 className='stores' onClick={()=>{setSearch('');setCategory('all')}}>STORES</h5>
         </Link>
         <Link to='/help'  style={{marginRight:20,color:'black',textDecoration:'none'}}>
-        <h5 className='help' onClick={()=>setSearch('')}>HELP</h5>
+        <h5 className='help' onClick={()=>{setSearch('');setCategory('all')}}>HELP</h5>
         </Link>
         <Link to='/cart'>
         <Badge style={{cursor:'pointer',marginRight:10}}   color="secondary" badgeContent={cart.length}>
-          <AddShoppingCartTwoToneIcon onClick={()=>setSearch('')} style={{color:'black'}} titleAccess='Cart'/>{" "}
+          <AddShoppingCartTwoToneIcon onClick={()=>{setSearch('');setCategory('all')}} style={{color:'black'}} titleAccess='Cart'/>{" "}
         </Badge>{" "}
         </Link>
         <Link to='/favorite' style={{textDecoration: 'none',marginRight:10}}>
-        <FavoriteBorderIcon onClick={()=>setSearch('')} style={{color:'black'}} titleAccess='Favorites'/>
+        <FavoriteBorderIcon onClick={()=>{setSearch('');setCategory('all')}} style={{color:'black'}} titleAccess='Favorites'/>
         </Link>
         <div>
       <Button

@@ -4,7 +4,7 @@ import Product from './Product';
 import './Products.css'
 import { CartData } from '../Context';
 const Products = () => {
-    const {products,search,button,setButton} = useContext(CartData)
+    const {products,search,button,setButton,category} = useContext(CartData)
     const [newList, setnewList] = useState([])
     const b = newList?newList:products;
     if(search.length === 0){
@@ -16,10 +16,27 @@ const Products = () => {
     // }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
     useEffect(() => {
-      const data = products;
-      const newData = data.filter((e)=>e.title.toLowerCase().includes(search));
+      
+      // const data = products;
+      
+      
+      if(category){
+        if(category === 'all'){
+          const data = products;
+          const newData = data.filter((e)=>e.title.toLowerCase().includes(search));
       setnewList(newData)
-    }, [button]) // eslint-disable-line react-hooks/exhaustive-deps
+        }
+        else{
+      const data = products;
+      const newData = data.filter((e)=>e.category.toLowerCase().includes(category));
+      setnewList(newData)
+      if(button){
+        const newData = data.filter((e)=>e.title.toLowerCase().includes(search));
+      setnewList(newData)
+      }
+        }
+      }
+    }, [button,category]) // eslint-disable-line react-hooks/exhaustive-deps
     // console.log(newData)
     
     
@@ -28,11 +45,11 @@ const Products = () => {
         <div className='side-filter'>
             <h1>Hello</h1>
         </div>
-        <ul className='card-css'> 
+        {b.length>0?<ul className='card-css'> 
             {b.map((e)=>(
                 <Product product={e} key={e.id} />
             ))}
-        </ul>
+        </ul>:<h3 className='no-css'>No Item Found</h3>}
     </div>
   )
 }

@@ -19,6 +19,16 @@
     width: 20%;
     height: 80vh;
     position: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.no-css{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .cards{
 /* height:230px; */
@@ -80,5 +90,5 @@ button {
     background-color: white;
     font-weight: bold;
     border-radius: 3px;
-    font-size: 14px;
+    font-size: 12px;
 }

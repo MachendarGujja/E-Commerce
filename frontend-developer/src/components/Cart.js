@@ -4,22 +4,48 @@ import Product from './Product'
 import '../components/Cart.css'
 
 const Cart = () => {
-    const {cart,search,button,setButton} = useContext(CartData)
+    const {cart,search,setSearch,button,setButton,category} = useContext(CartData)
     const [newList, setnewList] = useState([])
+    const [total, setTotal] = useState()
     const b = newList?newList:cart;
+    // console.log(cart)
     if(search.length === 0){
        setButton(false)
-      }
-    //   console.log(search);
-    // const fetchBusinesses = useCallback(() => {
-      
-    // }, []) // eslint-disable-line react-hooks/exhaustive-deps
-
+    }
+    console.log(button);
     useEffect(() => {
-      const data = cart;
-      const newData = data.filter((e)=>e.title.toLowerCase().includes(search));
+      if(category){
+        if(category === 'all'){
+          const data = cart;
+      setnewList(data)
+      // setSearch('')
+      // setButton(false)
+      if(button && search.length>0){
+        const data = newList;
+        const newData = data.filter((e)=>e.title.toLowerCase().includes(search));
       setnewList(newData)
-    }, [button])// eslint-disable-line react-hooks/exhaustive-deps
+      // setButton(false)
+      // setSearch('')
+      }
+        }
+        else{
+      const data = cart;
+      const newData = data.filter((e)=>e.category.toLowerCase().includes(category));
+      setnewList(newData)
+      // setSearch('')
+      if(button){
+        const data = newList;
+        const newData = data.filter((e)=>e.title.toLowerCase().includes(search));
+      setnewList(newData)
+      // setButton(false)
+      // setSearch('')
+      }
+        }
+      }
+      
+      
+      setTotal(cart.reduce((tot,cur)=>tot+parseInt(cur.price*80), 0));
+    }, [button,cart,category])// eslint-disable-line react-hooks/exhaustive-deps
   return (
     <div className='css-cartt'>
         <div className='ss'>
@@ -34,7 +60,8 @@ const Cart = () => {
         </div>}
         </div>
         <div className='second-pricec'>
-            <h1 style={{color:'black'}}>Hello</h1>
+            <h5 style={{color:'black',marginRight:5}}>Total Price :</h5>
+            <h5>{total}</h5>
         </div>
     </div>
   )

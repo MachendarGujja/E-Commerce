@@ -7,15 +7,16 @@ const Context = ({children}) => {
     const [search,setSearch] = useState('');
     const [button,setButton] = useState(false)
     const [empty,setEmpty] = useState()
+    const [category, setCategory] = useState('all')
   
     const productApi = async() =>{
-      const data = await axios.get('https://fakestoreapi.com/products');
+      const data = await axios.get('https://fakestoreapi.com/products?sort=desc');
       setProducts(data.data);
   }
   const [products,setProducts]=useState(productApi)
   
   return (
-    <CartData.Provider value={{empty,setEmpty,search,setSearch,fav,setFav,cart,setCart,products,button,setButton}}>{children}</CartData.Provider>
+    <CartData.Provider value={{category,setCategory,empty,setEmpty,search,setSearch,fav,setFav,cart,setCart,products,button,setButton}}>{children}</CartData.Provider>
   )
 }
 
