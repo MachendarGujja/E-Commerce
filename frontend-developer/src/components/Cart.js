@@ -4,7 +4,7 @@ import Product from './Product'
 import '../components/Cart.css'
 
 const Cart = () => {
-    const {cart,search,setSearch,button,setButton,category} = useContext(CartData)
+    const {cart,search,button,setButton,category} = useContext(CartData)
     const [newList, setnewList] = useState([])
     const [total, setTotal] = useState()
     const b = newList?newList:cart;
