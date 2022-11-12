@@ -1,23 +1,32 @@
-import { createContext,useState } from 'react';
+import { createContext,useReducer ,useContext,useState} from 'react';
+import { mainReducer } from './Reducer';
 import axios from 'axios';
-export const CartData = createContext();
+const Cart = createContext();
 const Context = ({children}) => {
-    const [cart, setCart] = useState([]);
-    const [fav, setFav] = useState([]);
-    const [search,setSearch] = useState('');
-    const [button,setButton] = useState(false)
-    const [empty,setEmpty] = useState()
-    const [category, setCategory] = useState('all')
+    const [data,setData] = useState('');
+    // const [button,setButton] = useState(false)
+    // const [category, setCategory] = useState('all')
   
     const productApi = async() =>{
-      const data = await axios.get('https://fakestoreapi.com/products?sort=desc');
-      setProducts(data.data);
-  }
-  const [products,setProducts]=useState(productApi)
+      let data = await axios.get('https://fakestoreapi.com/products?sort=desc');
+      setData(data)
+    }
+  const [main, dispatchMain] = useReducer(mainReducer,{
+    products:data,
+    cart:[],
+    fav:[],
+    search:'',
+    button:false,
+    category:'all',
+  })
   
   return (
-    <CartData.Provider value={{category,setCategory,empty,setEmpty,search,setSearch,fav,setFav,cart,setCart,products,button,setButton}}>{children}</CartData.Provider>
+    <Cart.Provider value={{main,dispatchMain}}>{children}</Cart.Provider>
   )
+}
+
+export const CartData = () =>{
+  return useContext(Cart)
 }
 
 export default Context
