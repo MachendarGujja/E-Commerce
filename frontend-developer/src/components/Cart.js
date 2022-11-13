@@ -1,58 +1,21 @@
 import {useState,useEffect} from 'react'
-import { CartData } from '../Context'
-import Product from './Product'
+import { CartData } from '../Context';
+import Product from './Product';
 import '../components/Cart.css'
 
 const Cart = () => {
-  const {products}=CartData()
-    // const {cart,search,button,setButton,category} = useContext(CartData)
-    // const [newList, setnewList] = useState([])
-    const [total, setTotal] = useState()
-    // const b = newList?newList:cart;
-    // // console.log(cart)
-    // if(search.length === 0){
-    //    setButton(false)
-    // }
-    // console.log(button);
+    const [total, setTotal] = useState(0)
+    const {main:{cart}} = CartData()
     useEffect(() => {
-    //   if(category){
-    //     if(category === 'all'){
-    //       const data = cart;
-    //   setnewList(data)
-    //   // setSearch('')
-    //   // setButton(false)
-    //   if(button && search.length>0){
-    //     const data = newList;
-    //     const newData = data.filter((e)=>e.title.toLowerCase().includes(search));
-    //   setnewList(newData)
-    //   // setButton(false)
-    //   // setSearch('')
-    //   }
-    //     }
-    //     else{
-    //   const data = cart;
-    //   const newData = data.filter((e)=>e.category.toLowerCase().includes(category));
-    //   setnewList(newData)
-    //   // setSearch('')
-    //   if(button){
-    //     const data = newList;
-    //     const newData = data.filter((e)=>e.title.toLowerCase().includes(search));
-    //   setnewList(newData)
-      // setButton(false)
-      // setSearch('')
-      // }
-    //     }
-    //   }
       
-      
-      setTotal(products.reduce((tot,cur)=>tot+parseInt(cur.price*80), 0));
-    }, [products])// eslint-disable-line react-hooks/exhaustive-deps
+      setTotal(cart.reduce((tot,cur)=>tot+parseInt(cur.price*80), 0));
+    }, [cart])// eslint-disable-line react-hooks/exhaustive-deps
   return (
     <div className='css-cartt'>
         <div className='ss'>
-        {products.length>0?
+        {cart.length>0?
         <ul className='card-csss'> 
-            {products.map((e)=>(
+            {cart.map((e)=>(
                 <Product product={e} key={e.id} />
             ))}
         </ul>:

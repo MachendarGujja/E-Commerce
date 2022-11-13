@@ -9,6 +9,7 @@
 }
 .css{
     height: 100%;
+    width: 100vw;
     background-color: #dce0e2;
     margin: 0;
     padding: 0;
@@ -20,6 +21,7 @@
     height: 80vh;
     position: inherit;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }

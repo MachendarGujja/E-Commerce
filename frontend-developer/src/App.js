@@ -31,6 +31,13 @@ export default function App(){
       lastName:'K',
       mail:'suman@gmail.com',
       pass:'123',
+    },
+    {
+      id:uuid(),
+      firstName:'Suman',
+      lastName:'K',
+      mail:'',
+      pass:'',
     }
   ];
 
