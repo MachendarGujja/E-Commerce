@@ -22,7 +22,8 @@ const Context = ({children}) => {
   })
   const [filter, dispatchFilter] = useReducer(filterReducer,{
     price:'',
-    fastDelivery:false,
+    fastDel:false,
+    byStock:false,
   })
   
   return (

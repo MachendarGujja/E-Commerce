@@ -33,7 +33,7 @@ export default function Header({loginFunction,user}){
         <h6 style={{marginLeft:5}}>{`Hello, ${user.firstName} ${user.lastName}`}</h6>
         </div> */}
         <div >
-        <Link to='/' >
+        <Link to='/' onClick={()=>dispatchMain({type:'CLEAR_SEARCH'})}>
         <img className="icon-img"  title='Go to Home' src="https://media.designrush.com/inspiration_images/136099/conversions/_1513769278_678_Prada_Logo_865cc60eea8d-desktop.jpg" alt="icon"/>
         </Link>
         </div>
@@ -60,18 +60,18 @@ export default function Header({loginFunction,user}){
         {/* <Button onClick={()=>dispatchMain({type:"BTN",payload:true})}>Search</Button> */}
         </div>
         <div className='options-list'>
-        <Link to='/'  style={{marginRight:15,color:'black',textDecoration:'none'}}>
+        <Link to='/' onClick={()=>dispatchMain({type:'CLEAR_SEARCH'})}  style={{marginRight:15,color:'black',textDecoration:'none'}}>
         <h5 className='stores' >STORES</h5>
         </Link>
-        <Link to='/help'  style={{marginRight:20,color:'black',textDecoration:'none'}}>
+        <Link to='/help' onClick={()=>dispatchMain({type:'CLEAR_SEARCH'})}  style={{marginRight:20,color:'black',textDecoration:'none'}}>
         <h5 className='help' >HELP</h5>
         </Link>
-        <Link to='/cart'>
+        <Link to='/cart' onClick={()=>dispatchMain({type:'CLEAR_SEARCH'})}>
         <Badge style={{cursor:'pointer',marginRight:10}}   color="secondary" badgeContent={cart.length}>
           <AddShoppingCartTwoToneIcon  style={{color:'black'}} titleAccess='Cart'/>{" "}
         </Badge>{" "}
         </Link>
-        <Link to='/favorite' style={{textDecoration: 'none',marginRight:10}}>
+        <Link to='/favorite' onClick={()=>dispatchMain({type:'CLEAR_SEARCH'})} style={{textDecoration: 'none',marginRight:10}}>
         <FavoriteBorderIcon  style={{color:'black'}} titleAccess='Favorites'/>
         </Link>
         <div>

@@ -10,6 +10,8 @@ export const mainReducer = (state,action) =>{
             return {...state,fav:state.fav.filter((e)=>e.id !== action.payload.id)}
         case 'SEARCH':
             return {...state,search:action.payload}
+        case 'CLEAR_SEARCH':
+            return {...state,search:''}
         case 'BTN':
             return {...state,button:action.payload}
         case 'CHANGE':
@@ -22,8 +24,10 @@ export const filterReducer = (state,action)=>{
     switch (action.type) {
         case 'PRICE':
             return {...state,price:action.payload}
-            case 'FAST':
-            return {...state,fastDelivery:!state.fastDelivery}
+        case 'FAST':
+        return {...state,fastDel:!state.fastDel}
+        case 'STOCK':
+        return {...state,byStock:!state.byStock}
     
         default:
             return state;
