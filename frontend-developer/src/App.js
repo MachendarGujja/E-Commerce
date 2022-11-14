@@ -32,13 +32,13 @@ export default function App(){
       mail:'suman@gmail.com',
       pass:'123',
     },
-    {
-      id:uuid(),
-      firstName:'Suman',
-      lastName:'K',
-      mail:'',
-      pass:'',
-    }
+    // {
+    //   id:uuid(),
+    //   firstName:'Suman',
+    //   lastName:'K',
+    //   mail:'',
+    //   pass:'',
+    // }
   ];
 
   const [list,setList]=useState(list_of_users);
