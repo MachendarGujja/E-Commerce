@@ -8,6 +8,9 @@ const Product = ({product}) => {
         main:{
             cart,fav,search
         },
+        filter:{
+            byStock
+        },
         dispatchMain} = CartData();
     console.log(search);
   return (
@@ -20,7 +23,7 @@ const Product = ({product}) => {
         <div>
         {cart.some((p)=>p.id === product.id)?
         <button className='but' onClick={()=>dispatchMain({type:'REMOVE_FROM_CART',payload:product,})}>Remove from Cart</button>:
-        <button className='but' onClick={()=>dispatchMain({type:'ADD_TO_CART',payload:product,})}>Add to Cart</button>}
+        <button className='but' onClick={()=>dispatchMain({type:'ADD_TO_CART',payload:product,})} disabled={byStock}>{byStock?'Out of Stock':'Add to Cart'}</button>}
         </div>
         </div>
         <div style={{display:'flex',justifyContent:'space-evenly',alignItems:'center',width:'100%'}}>
@@ -29,7 +32,7 @@ const Product = ({product}) => {
         <StarRating data={product.ratings}/>
             </div>
             <div>
-        <p style={{marginLeft:8}}>{product.fastDelivery?'Fast':'Late'}</p>
+        <p style={{marginLeft:8}}>{product.fastDelivery?'Fast':'3 Days late'}</p>
             </div>
         </div>
         <div>

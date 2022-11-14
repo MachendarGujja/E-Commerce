@@ -24,6 +24,7 @@ const Context = ({children}) => {
     price:'',
     fastDel:false,
     byStock:false,
+    byRating:0,
   })
   
   return (

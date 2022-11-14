@@ -3,7 +3,6 @@ import Home from './components/Home';
 import Register from './components/Register';
 import Header from './components/Header';
 import Signin from './components/Signin';
-
 import uuid from 'react-uuid';
 import { useEffect, useState } from 'react';
 import Products from './components/Products';
@@ -32,13 +31,13 @@ export default function App(){
       mail:'suman@gmail.com',
       pass:'123',
     },
-    // {
-    //   id:uuid(),
-    //   firstName:'Suman',
-    //   lastName:'K',
-    //   mail:'',
-    //   pass:'',
-    // }
+    {
+      id:uuid(),
+      firstName:'Suman',
+      lastName:'K',
+      mail:'',
+      pass:'',
+    }
   ];
 
   const [list,setList]=useState(list_of_users);

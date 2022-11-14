@@ -28,7 +28,15 @@ export const filterReducer = (state,action)=>{
         return {...state,fastDel:!state.fastDel}
         case 'STOCK':
         return {...state,byStock:!state.byStock}
-    
+        case 'FILTER_BY_RATING':
+            return {...state,byRating:action.payload}
+        case 'CLEAR_FILTER':
+            return {
+                price:'',
+    fastDel:false,
+    byStock:false,
+    byRating:0,
+            }
         default:
             return state;
     }

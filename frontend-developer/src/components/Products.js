@@ -4,13 +4,14 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 import Product from './Product';
-import {Form} from 'react-bootstrap';
+import Star from './Star'
+import {Form,Button} from 'react-bootstrap';
 import './Products.css';
 // import {useState} from 'react';
 import { CartData } from '../Context';
 const Products = () => {
     const {main:{products,search}}=CartData()
-    const {filter:{price,fastDel,byStock},dispatchFilter} = CartData()
+    const {filter:{price,fastDel,byStock,byRating},dispatchFilter} = CartData()
     // console.log(button);
     const productFun=()=>{
       let newList = products;
@@ -24,9 +25,12 @@ const Products = () => {
       if(fastDel){
           newList = newList.filter((e)=>e.fastDelivery)
       }
-      if(!byStock){
+      if(byStock){
         newList = newList.filter((e)=>e.inStock)
     }
+    if(byRating){
+      newList = newList.filter((e)=>e.ratings >= byRating)
+  }
       console.log(newList);
       return newList;
     }
@@ -65,6 +69,21 @@ const Products = () => {
             onChange={()=>dispatchFilter({type:'STOCK',})}
             checked={byStock}
           />
+          <div style={{display:'flex'}}>
+        <Star
+          rating={byRating}
+          onClick={(i) =>
+            dispatchFilter({
+              type: "FILTER_BY_RATING",
+              payload: i + 1,
+            })
+          }
+          style={{ cursor: "pointer"}}
+        />
+        </div>
+        <div>
+          <Button onClick={()=>dispatchFilter({type:'CLEAR_FILTER'})}>Clear Filters</Button>
+        </div>
     </FormControl>
         </div>
         <div className='mid-css'>
