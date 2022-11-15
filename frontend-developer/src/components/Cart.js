@@ -1,6 +1,6 @@
 import {useState,useEffect} from 'react'
 import { CartData } from '../Context';
-import Product from './Product';
+import CartProduct from './CartProduct';
 import '../components/Cart.css'
 
 const Cart = () => {
@@ -16,15 +16,15 @@ const Cart = () => {
     }
     useEffect(() => {
       
-      setTotal(cart.reduce((tot,cur)=>tot+parseInt(cur.price*80), 0));
+      setTotal(cart.reduce((tot,cur)=>tot+parseInt((cur.price*80)*cur.qty), 0));
     }, [cart])// eslint-disable-line react-hooks/exhaustive-deps
   return (
     <div className='css-cartt'>
         <div className='ss'>
         {productFun().length>0?
-        <ul className='card-csss'> 
+        <ul className='card-cssss'> 
             {productFun()?.map((e)=>(
-                <Product product={e} key={e.id} />
+                <CartProduct product={e} key={e.id} />
             ))}
         </ul>:
         <div className='carttt'>

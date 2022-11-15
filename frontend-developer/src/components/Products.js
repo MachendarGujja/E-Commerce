@@ -10,28 +10,38 @@ import './Products.css';
 // import {useState} from 'react';
 import { CartData } from '../Context';
 const Products = () => {
-    const {main:{products,search}}=CartData()
+    const {main:{products,search,button}}=CartData()
     const {filter:{price,fastDel,byStock,byRating},dispatchFilter} = CartData()
     // console.log(button);
     const productFun=()=>{
       let newList = products;
-      if(search){
-           newList = newList.filter((e)=>e.name.toLowerCase().includes(search))
-          // dispatchMain({type:'CHANGE'})
+      
+      if(button){
+        // dispatchMain({type:'BTN'})
+        newList = newList.filter((e)=>e.name.toLowerCase().includes(search))
       }
+      // if(button && search.length > 0){
+      //   newList = newList.filter((e)=>e.name.toLowerCase().includes(search))
+      //  //  if(){
+      //  //   dispatchMain({type:'BTN'})
+      //  // }
+      //  }
+       if(!button){
+        newList=products;
+       }
       if(price){
         newList = newList.sort((cur,nxt)=>price === 'lowtohigh'?cur.price - nxt.price:nxt.price - cur.price)
         }
       if(fastDel){
           newList = newList.filter((e)=>e.fastDelivery)
       }
-      if(byStock){
+      if(!byStock){
         newList = newList.filter((e)=>e.inStock)
     }
     if(byRating){
       newList = newList.filter((e)=>e.ratings >= byRating)
   }
-      console.log(newList);
+      // console.log(newList);
       return newList;
     }
     

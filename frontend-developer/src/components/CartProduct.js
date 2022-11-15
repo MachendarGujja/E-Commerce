@@ -1,13 +1,13 @@
 import FavoriteSharpIcon from '@mui/icons-material/FavoriteSharp';
 import { CartData } from '../Context';
 import StarRating from './StarRating';
-// import Box from '@mui/material/Box';
-// import InputLabel from '@mui/material/InputLabel';
-// import FormControl from '@mui/material/FormControl';
-// import NativeSelect from '@mui/material/NativeSelect';
+import Box from '@mui/material/Box';
+import InputLabel from '@mui/material/InputLabel';
+import FormControl from '@mui/material/FormControl';
+import NativeSelect from '@mui/material/NativeSelect';
 import './Products.css'
 
-const Product = ({product}) => {
+const CartProduct = ({product}) => {
     const {
         main:{
             cart,fav
@@ -19,14 +19,14 @@ const Product = ({product}) => {
 
     // console.log(product);
   return (
-    <li className='cards'>
+    <li className='cardss'>
         <img style={{width:100,height:120,marginTop:3,marginBottom:3}} src={product.image} alt={product.title}/>
         <div className='bot-css'>
         {product.name.length>35?`${product.title.substring(0,17)}...`:`${product.name}`}
         <div className='midcss'>
         <h5>&#8377; {parseInt(product.price*80)}</h5>
         <div>
-        {/* <Box sx={{ minWidth: 120 }}>
+        <Box sx={{ minWidth: 120 }}>
       <FormControl fullWidth>
         <InputLabel variant="standard" htmlFor="uncontrolled-native">
           Select Qty:
@@ -45,7 +45,7 @@ const Product = ({product}) => {
         }
         </NativeSelect>
       </FormControl>
-    </Box> */}
+    </Box>
         {cart.some((p)=>p.id === product.id)?
         <button className='but' onClick={()=>dispatchMain({type:'REMOVE_FROM_CART',payload:product,})}>Remove from Cart</button>:
         <button className='but' onClick={()=>dispatchMain({type:'ADD_TO_CART',payload:product,})} disabled={byStock}>{byStock?'Out of Stock':'Add to Cart'}</button>}
@@ -71,4 +71,4 @@ const Product = ({product}) => {
   )
 }
 
-export default Product
+export default CartProduct

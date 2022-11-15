@@ -4,6 +4,8 @@ export const mainReducer = (state,action) =>{
             return {...state,cart:[...state.cart,{...action.payload,qty:1}]}
         case 'REMOVE_FROM_CART':
             return {...state,cart:state.cart.filter((e)=>e.id !== action.payload.id)}
+        case 'CHANGE_QTY':
+            return {...state,cart:state.cart.filter((e)=>e.id === action.payload.id?(e.qty = action.payload.qty):e.qty)}
         case 'ADD_TO_FAV':
             return {...state,fav:[...state.fav,action.payload]}
         case 'REMOVE_FROM_FAV':
@@ -13,7 +15,7 @@ export const mainReducer = (state,action) =>{
         case 'CLEAR_SEARCH':
             return {...state,search:''}
         case 'BTN':
-            return {...state,button:action.payload}
+            return {...state,button:!state.button}
         case 'CHANGE':
              return {...state,button:false}
          default:

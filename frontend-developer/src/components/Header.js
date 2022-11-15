@@ -16,7 +16,7 @@ import MenuItem from '@mui/material/MenuItem';
 // import Select from '@mui/material/Select';
 import { CartData } from '../Context';
 export default function Header({loginFunction,user}){
-  const {main:{cart,search},dispatchMain} =CartData()
+  const {main:{cart,search,button},dispatchMain} =CartData()
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -56,8 +56,8 @@ export default function Header({loginFunction,user}){
         </Select>
       </FormControl>
     </Box> */}
-        <Form.Control onChange={(e)=>dispatchMain({type:'SEARCH',payload:e.target.value})} value={search}  className='in-css' type="text" placeholder="Search anything..." />
-        {/* <Button onClick={()=>dispatchMain({type:"BTN",payload:true})}>Search</Button> */}
+        <Form.Control onChange={(e)=>(button===true && search.length === 0)?(dispatchMain({type:'BTN'})):dispatchMain({type:'SEARCH',payload:e.target.value})} value={search}  className='in-css' type="text" placeholder="Search anything..." />
+        <Button onClick={()=>dispatchMain({type:"BTN"})}>Search</Button>
         </div>
         <div className='options-list'>
         <Link to='/' onClick={()=>dispatchMain({type:'CLEAR_SEARCH'})}  style={{marginRight:15,color:'black',textDecoration:'none'}}>
