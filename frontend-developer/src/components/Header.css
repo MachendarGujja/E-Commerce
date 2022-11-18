@@ -9,6 +9,13 @@
     /* margin-left: 100px; */
     align-items: center;
 }
+.search{
+    background-color: #dce0e2 !important;
+    color: black !important;
+    border-bottom-left-radius: 0px !important;
+    border-top-left-radius: 0px !important;
+    border: none !important;
+}
 .name-css{
     display: flex;
     width: 180px;
@@ -35,6 +42,8 @@
     /* border: 1px solid black; */
 }
 .in-css{
-    border-bottom-right-radius: 0px;
-    border-left: none;
+    border-bottom-right-radius: 0px !important;
+    border-top-right-radius: 0px !important;
+    width: 230px !important;
+    background-color: #dce0e2 !important;
 }

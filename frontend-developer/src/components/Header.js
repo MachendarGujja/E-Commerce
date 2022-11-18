@@ -10,10 +10,7 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import Button from 'react-bootstrap/esm/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-// import Box from '@mui/material/Box';
-// import InputLabel from '@mui/material/InputLabel';
-// import FormControl from '@mui/material/FormControl';
-// import Select from '@mui/material/Select';
+import {FiSearch} from 'react-icons/fi'
 import { CartData } from '../Context';
 export default function Header({loginFunction,user}){
   const {main:{cart,search,button},dispatchMain} =CartData()
@@ -38,26 +35,8 @@ export default function Header({loginFunction,user}){
         </Link>
         </div>
         <div style={{display:'flex',height:40}}>
-        {/* <Box sx={{ minWidth: 120,height:40 }}>
-      <FormControl fullWidth style={{height:40}}>
-        <InputLabel id="demo-simple-select-label">Category</InputLabel>
-        <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          value='all'
-          label="Age"
-         
-        >
-          <MenuItem value={'all'} >All</MenuItem>
-          <MenuItem value={"men's clothing"} >Men's clothing</MenuItem>
-          <MenuItem value={"women's clothing"} >Women's clothing</MenuItem>
-          <MenuItem value={'jewelery'} >Jewelory</MenuItem>
-          <MenuItem value={"electronics"} >Electronics</MenuItem>
-        </Select>
-      </FormControl>
-    </Box> */}
-        <Form.Control onChange={(e)=>(button===true && search.length === 0)?(dispatchMain({type:'BTN'})):dispatchMain({type:'SEARCH',payload:e.target.value})} value={search}  className='in-css' type="text" placeholder="Search anything..." />
-        <Button onClick={()=>dispatchMain({type:"BTN"})}>Search</Button>
+        <Form.Control onChange={(e)=>(button===true && search.length === 0)?(dispatchMain({type:'BTN'})):dispatchMain({type:'SEARCH',payload:e.target.value})} value={search}  className='in-css' type="text" placeholder="Search Items..." />
+        <Button className='search' onClick={()=>dispatchMain({type:"BTN"})}><FiSearch/></Button>
         </div>
         <div className='options-list'>
         <Link to='/' onClick={()=>dispatchMain({type:'CLEAR_SEARCH'})}  style={{marginRight:15,color:'black',textDecoration:'none'}}>
