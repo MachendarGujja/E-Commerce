@@ -17,13 +17,18 @@
     display: flex;
 }
 .side-filter{
-    border: 1px solid black;
-    width: 30vh;
-    height: 80vh;
-    position: inherit;
+    border: none;
+    width: 13vw;
+    height: 60vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    margin-top: 61px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
+    padding-top: 10px;
+    background-color: white;
     align-items: center;
 }
 .no-css{
@@ -48,7 +53,7 @@ box-sizing: border-box;
 }
 .cardss{
     /* height:200px; */
-    width: 70%;
+    width: 70vw;
     display: flex;
     /* flex-direction: column; */
     justify-content: center;
@@ -74,9 +79,9 @@ box-sizing: border-box;
 }
 .mid-css{
     display: flex;
-    /* align-items: flex-start; */
     justify-content: space-between;
-    width: 90%;
+    width: 90vw;
+    margin-left: 180px;
 }
 button {
   background-color: transparent;

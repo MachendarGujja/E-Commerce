@@ -15,17 +15,9 @@ const Products = () => {
     // console.log(button);
     const productFun=()=>{
       let newList = products;
-      
       if(button){
-        // dispatchMain({type:'BTN'})
         newList = newList.filter((e)=>e.name.toLowerCase().includes(search))
       }
-      // if(button && search.length > 0){
-      //   newList = newList.filter((e)=>e.name.toLowerCase().includes(search))
-      //  //  if(){
-      //  //   dispatchMain({type:'BTN'})
-      //  // }
-      //  }
        if(!button){
         newList=products;
        }
@@ -37,6 +29,7 @@ const Products = () => {
       }
       if(!byStock){
         newList = newList.filter((e)=>e.inStock)
+        // newList=products;
     }
     if(byRating){
       newList = newList.filter((e)=>e.ratings >= byRating)
