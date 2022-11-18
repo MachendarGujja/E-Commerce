@@ -42,7 +42,7 @@ const Products = () => {
     <div className='css'>
         <div className='side-filter'>
             <FormControl >
-      <FormLabel id="demo-radio-buttons-group-label">Select Price :</FormLabel>
+      <FormLabel id="demo-radio-buttons-group-label" style={{fontWeight:'bold'}}>Price :</FormLabel>
       <RadioGroup 
         aria-labelledby="demo-radio-buttons-group-label"
         name="group1"
@@ -52,6 +52,7 @@ const Products = () => {
         <FormControlLabel  onChange={(e)=>{dispatchFilter({type:'PRICE',payload:"hightolow"})}} checked={price==='hightolow'?true:false} control={<Radio />} label="HighToLow" />
         {/* <FormControlLabel onChange={(e)=>{dispatchFilter({type:'PRICE',payload:"none"})}} checked={price==='none'?true:false} control={<Radio />} label="None" /> */}
       </RadioGroup>
+      <hr />
       <Form.Check
             inline
             label="fast delivery"
@@ -60,10 +61,11 @@ const Products = () => {
             id={`inline-1`}
             onChange={()=>dispatchFilter({type:'FAST',})}
             checked={fastDel}
-            style={{cursor:'pointer'}}
+            style={{cursor:'pointer',fontWeight:'bold'}}
+            
           />
           <Form.Check
-          style={{cursor:'pointer'}}
+          style={{cursor:'pointer',fontWeight:'bold',marginTop:6}}
             inline
             label="Out of stock"
             name="group1"
@@ -81,11 +83,11 @@ const Products = () => {
               payload: i + 1,
             })
           }
-          style={{ cursor: "pointer"}}
+          style={{ cursor: "pointer",color:'gold',marginTop:6,marginBottom:9}}
         />
         </div>
         <div>
-          <Button onClick={()=>dispatchFilter({type:'CLEAR_FILTER'})}>Clear Filters</Button>
+          <Button  onClick={()=>dispatchFilter({type:'CLEAR_FILTER'})}>Clear Filters</Button>
         </div>
     </FormControl>
         </div>
