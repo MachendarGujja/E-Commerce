@@ -10,11 +10,6 @@ const Cart = () => {
     const {main:{cart,search,button}} = CartData()
     const productFun=()=>{
       let newList = cart;
-      // if(search){
-      //      newList = newList.filter((e)=>e.name.toLowerCase().includes(search))
-      //     // dispatchMain({type:'CHANGE'})
-          
-      // }
       if(button){
         newList = newList.filter((e)=>e.name.toLowerCase().includes(search))
       }

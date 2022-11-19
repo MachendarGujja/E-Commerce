@@ -1,10 +1,6 @@
 import FavoriteSharpIcon from '@mui/icons-material/FavoriteSharp';
 import { CartData } from '../Context';
 import StarRating from './StarRating';
-// import Box from '@mui/material/Box';
-// import InputLabel from '@mui/material/InputLabel';
-// import FormControl from '@mui/material/FormControl';
-// import NativeSelect from '@mui/material/NativeSelect';
 import './Products.css'
 
 const Product = ({product}) => {
@@ -39,11 +35,12 @@ const Product = ({product}) => {
         <div className='starcss'>
         <StarRating   data={product.ratings}/>
             </div>
-        <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',width:'90%'}}>
+        <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',width:'100%'}}>
             <div>
-        <p style={{fontSize:12}}>{product.fastDelivery?'Fast Delivery':'3 Days late'}</p>
+        <p style={{fontSize:12,marginLeft:13}}>{product.fastDelivery?'Fast Delivery':'3 Days late'}</p>
             </div>
         <div >
+          
         {fav.find((f)=>f.id === product.id)?
         <button  onClick={()=>dispatchMain({type:'REMOVE_FROM_FAV',payload:product})}><FavoriteSharpIcon style={{color:'red'}}/></button>:
         <button  onClick={()=>dispatchMain({type:'ADD_TO_FAV',payload:product})}><FavoriteSharpIcon style={{color:'white'}}/></button>}

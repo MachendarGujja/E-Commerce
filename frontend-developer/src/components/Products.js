@@ -42,7 +42,7 @@ const Products = () => {
     <div className='css'>
         <div className='side-filter'>
             <FormControl >
-      <FormLabel id="demo-radio-buttons-group-label" style={{fontWeight:'bold'}}>Price :</FormLabel>
+      <FormLabel id="demo-radio-buttons-group-label" style={{fontWeight:600}}>Price :</FormLabel>
       <RadioGroup 
         aria-labelledby="demo-radio-buttons-group-label"
         name="group1"
@@ -55,17 +55,17 @@ const Products = () => {
       <hr />
       <Form.Check
             inline
-            label="fast delivery"
+            label="Fast delivery"
             name="group1"
             type='checkbox'
             id={`inline-1`}
             onChange={()=>dispatchFilter({type:'FAST',})}
             checked={fastDel}
-            style={{cursor:'pointer',fontWeight:'bold'}}
+            style={{cursor:'pointer',fontWeight:500}}
             
           />
           <Form.Check
-          style={{cursor:'pointer',fontWeight:'bold',marginTop:6}}
+          style={{cursor:'pointer',fontWeight:500,marginTop:6}}
             inline
             label="Out of stock"
             name="group1"
