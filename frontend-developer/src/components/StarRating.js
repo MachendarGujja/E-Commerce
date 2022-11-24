@@ -11,7 +11,7 @@ export default function StarRating({data}) {
           index += 1;
           return (
             <button
-            
+              
               type="button"
               key={index}
               className={index <= ( rating) ? "on" : "off"}

@@ -7,6 +7,9 @@
     padding-top: 65px;
     margin: 0;
 }
+    .intro:hover {
+      text-decoration: underline;
+    }
 .css{
     min-height: 100vh;
     height: 100%;
@@ -98,7 +101,7 @@ button {
 .star-rating{
     background-color: transparent;
     border:none;
-    font-size: 26px;
+    font-size: 24px;
 }
 .starcss{
     /* display: flex;
@@ -120,5 +123,5 @@ button {
     width: 90%;
     height: 100%;
     justify-content: space-between;
-    margin: 3px 2px;
+    margin-top: 3px;
 }

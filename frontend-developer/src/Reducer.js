@@ -32,11 +32,16 @@ export const filterReducer = (state,action)=>{
         return {...state,byStock:!state.byStock}
         case 'FILTER_BY_RATING':
             return {...state,byRating:action.payload}
+        case 'OPEN':
+            return {...state,open:!state.open,openData:{...state.openData,...action.payload}}
+        case 'CLOSE':
+            return {...state,open:!state.open}
         case 'CLEAR_FILTER':
             return {
                 price:'',
     fastDel:false,
     byStock:false,
+    open:false,
     byRating:0,
             }
         default:

@@ -25,6 +25,8 @@ const Context = ({children}) => {
     fastDel:false,
     byStock:false,
     byRating:0,
+    open:false,
+    openData:{},
   })
   
   return (

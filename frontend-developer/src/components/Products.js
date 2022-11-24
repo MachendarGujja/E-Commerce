@@ -6,12 +6,13 @@ import FormLabel from '@mui/material/FormLabel';
 import Product from './Product';
 import Star from './Star'
 import {Form,Button} from 'react-bootstrap';
+import Model from './Model'
 import './Products.css';
 // import {useState} from 'react';
 import { CartData } from '../Context';
 const Products = () => {
     const {main:{products,search,button}}=CartData()
-    const {filter:{price,fastDel,byStock,byRating},dispatchFilter} = CartData()
+    const {filter:{price,fastDel,byStock,byRating,open},dispatchFilter} = CartData()
     // console.log(button);
     const productFun=()=>{
       let newList = products;
@@ -39,6 +40,7 @@ const Products = () => {
     }
     
   return (
+    <>
     <div className='css'>
         <div className='side-filter'>
             <FormControl >
@@ -102,6 +104,8 @@ const Products = () => {
         }
         </div>
     </div>
+    {open && <Model />}
+    </>
   )
 }
 
